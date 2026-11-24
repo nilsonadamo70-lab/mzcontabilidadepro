@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MZ Contabilidade Pro</title>
+<meta name="description" content="Contabilidade, fiscalidade e consultoria para empresas e empreendedores moçambicanos. Atendimento online.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect x='4' y='4' width='72' height='72' rx='18' fill='%230b7a5a'/%3E%3Cpath d='M20 58V24L40 44L60 24V58' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='60' cy='22' r='6' fill='%23e5a823'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fff;--bg2:#f4f7f6;--ink:#0d1f1a;--mute:#5a6b65;--brand:#0b7a5a;--brand2:#12b886;--gold:#e5a823;--card:#fff;--line:#e2e9e6;--shadow:0 10px 30px rgba(11,122,90,.12)}
+[data-theme=dark]{--bg:#0a1512;--bg2:#0f1f1a;--ink:#eaf4f0;--mute:#97aba4;--card:#12261f;--line:#1f3a31;--shadow:0 10px 30px rgba(0,0,0,.4)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo b{color:var(--gold)}
+.links{display:flex;gap:18px;align-items:center;font-size:.9rem}
+.links a.nv{padding:6px 2px;border-bottom:2px solid transparent}
+.links a.nv:hover{color:var(--brand2)}
+.links a.nv.active{border-color:var(--brand2);color:var(--brand2);font-weight:600}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;border:0;cursor:pointer;font-size:.95rem;box-shadow:var(--shadow);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.btn.sm{padding:8px 16px;font-size:.85rem}
+.icon{background:none;border:1px solid var(--line);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
+.burger{display:none}
+.page{display:none;animation:fade .5s}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero{padding:70px 0 60px;background:radial-gradient(circle at 80% 10%,rgba(18,184,134,.18),transparent 50%),radial-gradient(circle at 10% 90%,rgba(229,168,35,.12),transparent 45%)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.phead{padding:56px 0 30px;background:radial-gradient(circle at 90% 0,rgba(18,184,134,.16),transparent 50%)}
+.tag{display:inline-block;background:var(--bg2);border:1px solid var(--line);padding:5px 14px;border-radius:999px;font-size:.8rem;color:var(--brand);font-weight:600}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:16px 0;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--brand),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mute);font-size:1.08rem;max-width:560px}
+.cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.bars{display:flex;align-items:flex-end;gap:10px;height:130px;margin:14px 0}
+.bars div{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(var(--brand2),var(--brand));height:0;transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
+.bars div:nth-child(even){background:linear-gradient(var(--gold),#c98f10)}
+small,.mute{color:var(--mute)}
+.kpis{display:flex;justify-content:space-between;margin-top:8px}
+.kpis b{font-size:1.25rem;display:block}
+section{padding:60px 0}
+section.alt{background:var(--bg2)}
+h2{font-size:clamp(1.5rem,3.5vw,2.1rem);letter-spacing:-.01em;margin-bottom:10px}
+.sub{color:var(--mute);max-width:600px;margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.card .e{font-size:1.8rem;display:block;margin-bottom:10px}
+.card h3{margin-bottom:6px;font-size:1.05rem}
+.card p{color:var(--mute);font-size:.93rem}
+.card a.more{display:inline-block;margin-top:10px;color:var(--brand2);font-weight:600;font-size:.9rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+label{display:block;font-size:.85rem;color:var(--mute);margin:12px 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brand2);border-color:transparent}
+.res div{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--line)}
+.res div:last-child{border:0;font-weight:800;font-size:1.1rem;color:var(--brand)}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+.seg button{flex:1;padding:10px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font-weight:600;white-space:nowrap}
+.seg button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.plan{position:relative}
+.plan.hot{border:2px solid var(--brand2)}
+.plan .pill{position:absolute;top:-12px;right:18px;background:var(--gold);color:#201500;font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px}
+.plan ul,.chk{list-style:none;margin:14px 0 18px}
+.plan li{padding:5px 0;color:var(--mute);font-size:.92rem}
+.plan li::before{content:"✓ ";color:var(--brand2);font-weight:700}
+.price{font-size:1.4rem;font-weight:800}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--mute);margin-top:10px;font-size:.94rem}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:30px}
+.contact ul{list-style:none;margin-top:18px}
+.contact li{padding:8px 0;color:var(--mute)}
+.ok{display:none;margin-top:14px;padding:14px;border-radius:12px;background:rgba(18,184,134,.15);color:var(--brand);font-weight:600}
+.tl{border-left:3px solid var(--line);margin-left:10px;padding-left:24px}
+.tl .it{position:relative;margin-bottom:26px}
+.tl .it::before{content:"";position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--brand2);border:3px solid var(--bg)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font-weight:600}
+.tabs button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.chk li{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:var(--card);cursor:pointer}
+.chk li.done span{text-decoration:line-through;opacity:.55}
+.chk input{width:auto;margin-top:5px;accent-color:var(--brand)}
+.prog{height:10px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0 18px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .4s}
+.post{cursor:pointer}
+.post .meta{font-size:.78rem;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.post .body{display:none;margin-top:10px;color:var(--mute);font-size:.93rem}
+.post.open .body{display:block}
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer a{margin-right:16px}
+footer a:hover{color:var(--brand2)}
+@media(max-width:860px){
+.hero .wrap,.two,.contact{grid-template-columns:1fr}
+.burger{display:block}
+.links{position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;align-items:flex-start;padding:18px 20px;border-bottom:1px solid var(--line);display:none}
+.links.open{display:flex}
+section{padding:44px 0}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#inicio"><svg width="38" height="38" viewBox="0 0 80 80" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b7a5a"/><stop offset="1" stop-color="#12b886"/></linearGradient></defs><rect x="4" y="4" width="72" height="72" rx="18" fill="url(#lg)"/><path d="M20 58 V24 L40 44 L60 24 V58" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="22" r="6" fill="#e5a823"/></svg> MZ Contabilidade <b>Pro</b></a>
+<div class="links" id="links">
+<a class="nv" href="#inicio">Início</a><a class="nv" href="#sobre">Sobre</a><a class="nv" href="#servicos">Serviços</a><a class="nv" href="#ferramentas">Ferramentas</a><a class="nv" href="#recursos">Recursos</a><a class="nv" href="#planos">Planos</a><a class="nv" href="#faq">FAQ</a>
+<a class="btn sm" href="#contacto">Contacto</a><a class="btn ghost sm" id="navLogin" href="#entrar">Entrar</a>
+</div>
+<div style="display:flex;gap:8px"><button class="icon" id="theme" aria-label="Tema">🌙</button><button class="icon burger" id="burger" aria-label="Menu">☰</button></div>
+</nav></div></header>
+
+<main>
+<!-- INÍCIO -->
+<div class="page" id="p-inicio">
+<div class="hero"><div class="wrap">
+<div>
+<span class="tag">Maputo · Moçambique</span>
+<h1>Contas em ordem. <span>Negócio a crescer.</span></h1>
+<p class="lead">Contabilidade, fiscalidade e consultoria para empresas e empreendedores moçambicanos. Conformidade com a AT, relatórios claros e decisões com segurança.</p>
+<div class="cta"><a class="btn" href="#contacto">Pedir orçamento grátis</a><a class="btn ghost" href="#ferramentas">Usar ferramentas</a></div>
+</div>
+<div class="panel">
+<small>O seu negócio, sempre a crescer 📈</small>
+<div class="bars" id="bars"><div data-h="45"></div><div data-h="60"></div><div data-h="52"></div><div data-h="78"></div><div data-h="70"></div><div data-h="95"></div></div>
+<div class="kpis"><span><small>Plano Essencial</small><b>1.ª vez grátis</b></span><span><small>Desde</small><b>50 MT/mês</b></span><span><small>Atendimento</small><b>Online</b></span></div><a class="btn" href="#planos" style="display:block;text-align:center;margin-top:18px">Ver planos</a>
+</div></div></div>
+<section><div class="wrap">
+<h2>O que podemos fazer por si</h2><p class="sub">Uma visão rápida dos nossos serviços principais.</p>
+<div class="grid">
+<div class="card"><span class="e">📒</span><h3>Contabilidade</h3><p>Escrituração, balancetes e demonstrações financeiras.</p><a class="more" href="#servicos">Ver serviços →</a></div>
+<div class="card"><span class="e">🧾</span><h3>Fiscalidade</h3><p>IVA, IRPC, IRPS e retenções, sempre dentro do prazo.</p><a class="more" href="#servicos">Ver serviços →</a></div>
+<div class="card"><span class="e">🧮</span><h3>Ferramentas</h3><p>Calculadoras de IVA e margem, gratuitas e instantâneas.</p><a class="more" href="#ferramentas">Experimentar →</a></div>
+<div class="card"><span class="e">📚</span><h3>Recursos</h3><p>Checklists e artigos para gerir melhor o seu negócio.</p><a class="more" href="#recursos">Explorar →</a></div>
+</div></div></section>
+<section class="alt"><div class="wrap">
+<h2>Porquê a MZ Contabilidade Pro</h2><p class="sub">Compromissos que assumimos com cada cliente.</p>
+<div class="grid">
+<div class="card"><h3>🎯 Clareza</h3><p>Relatórios simples, sem jargão desnecessário.</p></div>
+<div class="card"><h3>⏱️ Prazos cumpridos</h3><p>Acompanhamos o calendário fiscal por si.</p></div>
+<div class="card"><h3>🤝 Proximidade</h3><p>Um interlocutor que conhece o seu negócio.</p></div>
+<div class="card"><h3>🔒 Confidencialidade</h3><p>Os seus dados tratados com total discrição.</p></div>
+</div></div></section>
+</div>
+
+<!-- SOBRE -->
+<div class="page" id="p-sobre">
+<div class="phead"><div class="wrap"><span class="tag">Sobre nós</span><h1>Contabilidade com <span>visão de negócio</span></h1><p class="lead">Ajudamos empresas moçambicanas a organizar as contas, cumprir as obrigações fiscais e crescer com confiança.</p></div></div>
+<section><div class="wrap two">
+<div><h2>Missão</h2><p class="mute">Tornar a contabilidade simples e útil para todos os empreendedores, transformando números em decisões.</p><h2 style="margin-top:28px">Visão</h2><p class="mute">Ser o parceiro financeiro de referência para PMEs em Moçambique.</p></div>
+<div class="grid" style="grid-template-columns:1fr 1fr">
+<div class="card"><h3>Rigor</h3><p>Cada lançamento verificado.</p></div>
+<div class="card"><h3>Ética</h3><p>Transparência em tudo.</p></div>
+<div class="card"><h3>Inovação</h3><p>Ferramentas digitais modernas.</p></div>
+<div class="card"><h3>Parceria</h3><p>O seu sucesso é o nosso.</p></div>
+</div></div></section>
+<section class="alt"><div class="wrap"><h2>Como trabalhamos</h2><p class="sub">Um processo simples e transparente.</p>
+<div class="tl">
+<div class="it"><h3>1. Diagnóstico</h3><p class="mute">Conversa inicial gratuita para perceber a sua situação.</p></div>
+<div class="it"><h3>2. Proposta</h3><p class="mute">Orçamento claro, com serviços e preço fixo mensal.</p></div>
+<div class="it"><h3>3. Execução</h3><p class="mute">Tratamos da contabilidade e dos prazos fiscais por si.</p></div>
+<div class="it"><h3>4. Relatórios</h3><p class="mute">Resultados e recomendações de forma regular.</p></div>
+</div>
+<a class="btn" href="#contacto">Começar agora</a></div></section>
+</div>
+
+<!-- SERVIÇOS -->
+<div class="page" id="p-servicos">
+<div class="phead"><div class="wrap"><span class="tag">Serviços</span><h1>Soluções <span>completas</span></h1><p class="lead">Escolha uma área para ver o detalhe do que incluímos.</p></div></div>
+<section><div class="wrap">
+<div class="tabs" id="stabs"></div>
+<div class="panel" id="sdetail"></div>
+</div></section>
+</div>
+
+<!-- FERRAMENTAS -->
+<div class="page" id="p-ferramentas">
+<div class="phead"><div class="wrap"><span class="tag">Ferramentas</span><h1>Calculadoras <span>gratuitas</span></h1><p class="lead">Estimativas rápidas. Valores indicativos, não substituem aconselhamento profissional.</p></div></div>
+<section><div class="wrap">
+<div class="tabs" id="ttabs"><button class="on" data-t="iva">IVA</button><button data-t="mar">Margem e preço</button></div>
+<div id="t-iva" class="two">
+<div class="panel">
+<label>Valor (MZN)</label><input id="val" type="number" min="0" value="10000" inputmode="decimal">
+<label>Taxa de IVA (%)</label><input id="rate" type="number" min="0" value="16">
+<label>O valor introduzido é</label>
+<div class="seg" id="ivaMode"><button class="on" data-m="sem">Sem IVA</button><button data-m="com">Com IVA</button></div>
+</div>
+<div class="panel res"><div><span>Valor base</span><span id="r1">—</span></div><div><span>IVA</span><span id="r2">—</span></div><div><span>Total</span><span id="r3">—</span></div></div>
+</div>
+<div id="t-mar" class="two" style="display:none">
+<div class="panel">
+<label>Custo do produto/serviço (MZN)</label><input id="cost" type="number" min="0" value="5000">
+<label>Margem desejada sobre o preço (%)</label><input id="mg" type="number" min="0" max="99" value="30">
+<label>Adicionar IVA (%)</label><input id="mrate" type="number" min="0" value="16">
+</div>
+<div class="panel res"><div><span>Preço de venda (sem IVA)</span><span id="m1">—</span></div><div><span>Lucro por unidade</span><span id="m2">—</span></div><div><span>Preço final com IVA</span><span id="m3">—</span></div></div>
+</div>
+</div></section>
+</div>
+
+<!-- RECURSOS -->
+<div class="page" id="p-recursos">
+<div class="phead"><div class="wrap"><span class="tag">Recursos</span><h1>Checklists e <span>artigos</span></h1><p class="lead">Conteúdos práticos para gerir melhor o seu negócio.</p></div></div>
+<section><div class="wrap two">
+<div>
+<h2>Checklist mensal</h2><p class="sub" style="margin-bottom:8px">Marque o que já fez este mês. O progresso fica guardado neste ecrã.</p>
+<div class="prog"><i id="pbar"></i></div><small id="ptxt"></small>
+<ul class="chk" id="chk"></ul>
+</div>
+<div>
+<h2>Artigos</h2><p class="sub" style="margin-bottom:14px">Toque para ler.</p>
+<div class="tabs" id="ptabs"><button class="on" data-c="all">Todos</button><button data-c="Fiscal">Fiscal</button><button data-c="Gestão">Gestão</button><button data-c="Empresa">Empresa</button></div>
+<div id="posts" class="grid" style="grid-template-columns:1fr"></div>
+</div>
+</div></section>
+</div>
+
+<!-- PLANOS -->
+<div class="page" id="p-planos">
+<div class="phead"><div class="wrap"><span class="tag">Planos</span><h1>Acompanhamento à <span>sua medida</span></h1><p class="lead">Escolha o plano ideal para a sua empresa.</p></div></div>
+<section><div class="wrap"><div class="plans">
+<div class="card plan"><h3>Essencial</h3><div class="price">50 MT/mês <small style="font-size:.8rem;font-weight:500">(1.ª vez grátis)</small></div><ul><li>Contabilidade mensal</li><li>Declaração de IVA</li><li>Suporte por e-mail</li></ul><a class="btn ghost" href="#contacto">Pedir preço</a></div>
+<div class="card plan hot"><span class="pill">Mais popular</span><h3>Profissional</h3><div class="price">350 MT/mês</div><ul><li>Tudo do Essencial</li><li>Salários e INSS</li><li>Relatórios de gestão</li><li>Suporte por WhatsApp</li></ul><a class="btn" href="#contacto">Pedir preço</a></div>
+<div class="card plan"><h3>Premium</h3><div class="price">800 MT/mês</div><ul><li>Tudo do Profissional</li><li>Consultor dedicado</li><li>Planeamento fiscal</li><li>Apoio em auditorias</li></ul><a class="btn ghost" href="#contacto">Pedir preço</a></div>
+</div></div></section>
+</div>
+
+<!-- FAQ -->
+<div class="page" id="p-faq">
+<div class="phead"><div class="wrap"><span class="tag">FAQ</span><h1>Perguntas <span>frequentes</span></h1></div></div>
+<section><div class="wrap" style="max-width:760px">
+<input id="fq" placeholder="🔎 Pesquisar pergunta…" style="margin-bottom:18px">
+<div id="faqs"></div>
+</div></section>
+</div>
+
+<!-- CONTACTO -->
+<div class="page" id="p-contacto">
+<div class="phead"><div class="wrap"><span class="tag">Contacto</span><h1>Vamos <span>conversar</span></h1><p class="lead">Conte-nos sobre o seu negócio. Respondemos em até 1 dia útil.</p></div></div>
+<section><div class="wrap contact">
+<div><ul><li>💻 Atendimento online</li><li>📞 <a href="tel:+258875220539" style="color:var(--brand2);font-weight:600">+258 87 522 0539</a></li><li>💬 <a href="https://wa.me/258875220539" target="_blank" rel="noopener" style="color:var(--brand2);font-weight:600">Falar no WhatsApp</a></li><li>✉️ <a href="mailto:nilsonadamo7@gmail.com" style="color:var(--brand2);font-weight:600">nilsonadamo7@gmail.com</a></li><li>🕘 Seg–Sex · 8h–17h</li></ul></div>
+<form class="panel" id="form" novalidate>
+<label>Nome</label><input id="n" placeholder="O seu nome">
+<label>Telefone ou e-mail</label><input id="c" placeholder="Como o contactamos?">
+<label>Serviço</label><select id="s"><option>Contabilidade geral</option><option>Fiscalidade</option><option>Salários e INSS</option><option>Constituição de empresa</option><option>Consultoria</option></select>
+<label>Mensagem</label><textarea id="m" rows="3" placeholder="Fale-nos do seu negócio"></textarea>
+<button class="btn" style="margin-top:16px;width:100%" type="submit">Enviar por WhatsApp</button>
+<div class="ok" id="ok"></div>
+</form>
+</div></section>
+</div>
+
+<!-- ENTRAR -->
+<div class="page" id="p-entrar">
+<div class="phead"><div class="wrap"><span class="tag">Área do cliente</span><h1>Entrar na <span>sua conta</span></h1><p class="lead">Use a sua chave de acesso para entrar.</p></div></div>
+<section><div class="wrap" style="max-width:440px"><div class="panel">
+<form id="lform" novalidate>
+<label>Chave de acesso</label><input id="lkey" type="password" placeholder="Introduza a sua chave" autocomplete="current-password">
+<button class="btn" style="margin-top:16px;width:100%" type="submit">Entrar</button>
+</form>
+<div class="ok" id="lmsg"></div>
+<p class="mute" style="font-size:.8rem;margin-top:16px">Não tem chave? <a href="#contacto" style="color:var(--brand2);font-weight:600">Peça-nos acesso</a>.</p>
+</div></div></section>
+</div>
+
+<!-- ÁREA DO CLIENTE -->
+<div class="page" id="p-cliente">
+<div class="phead"><div class="wrap"><span class="tag">Área do cliente</span><h1>Olá, <span id="cname">cliente</span></h1><p class="lead">Sessão iniciada via <b id="cvia">chave de acesso</b>.</p></div></div>
+<section><div class="wrap"><div class="grid">
+<div class="card"><span class="e">📄</span><h3>Enviar documentos</h3><p>Envie faturas e extratos por WhatsApp.</p><a class="more" href="https://wa.me/258875220539" target="_blank" rel="noopener">Abrir WhatsApp →</a></div>
+<div class="card"><span class="e">🧮</span><h3>Ferramentas</h3><p>Calculadoras de IVA e margem.</p><a class="more" href="#ferramentas">Abrir →</a></div>
+<div class="card"><span class="e">✅</span><h3>Checklist mensal</h3><p>Acompanhe o que falta fazer.</p><a class="more" href="#recursos">Abrir →</a></div>
+<div class="card"><span class="e">💬</span><h3>Falar com o contabilista</h3><p>Tire dúvidas diretamente.</p><a class="more" href="#contacto">Contactar →</a></div>
+</div>
+<button class="btn ghost" style="margin-top:26px" id="lout">Terminar sessão</button></div></section>
+</div>
+</main>
+
+<footer><div class="wrap">
+<div><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#recursos">Recursos</a><a href="#contacto">Contacto</a></div>
+<div>© <span id="yr"></span> MZ Contabilidade Pro</div>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+let user=null;try{user=JSON.parse(sessionStorage.getItem('mzu')||'null')}catch(e){}
+const pages=['inicio','sobre','servicos','ferramentas','recursos','planos','faq','contacto','entrar','cliente'];
+function route(){
+ let h=(location.hash||'#inicio').slice(1);if(!pages.includes(h))h='inicio';if(h==='cliente'&&!user)h='entrar';if(h==='entrar'&&user)h='cliente';
+ $$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+h));
+ $$('a.nv').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+h));
+ $('#links').classList.remove('open');window.scrollTo({top:0});
+ if(h==='inicio'){$$('#bars div').forEach(b=>b.style.height=0);setTimeout(()=>$$('#bars div').forEach(b=>b.style.height=b.dataset.h+'%'),200)}
+}
+addEventListener('hashchange',route);
+
+$('#theme').onclick=()=>{const r=document.documentElement,d=r.dataset.theme==='dark';r.dataset.theme=d?'':'dark';$('#theme').textContent=d?'🌙':'☀️'};
+$('#burger').onclick=()=>$('#links').classList.toggle('open');
+$('#yr').textContent=new Date().getFullYear();
+
+// Serviços
+const SV={
+ 'Contabilidade':['📒','Contabilidade geral','Mantemos os seus registos organizados e em conformidade.',['Escrituração e lançamentos','Balancetes mensais','Demonstrações financeiras anuais','Reconciliações bancárias','Encerramento de contas']],
+ 'Fiscalidade':['🧾','Fiscalidade','Cumprimento das obrigações fiscais sem sobressaltos.',['Declarações de IVA','IRPC e IRPS','Retenções na fonte','Acompanhamento de prazos','Apoio em notificações da AT']],
+ 'Salários':['👥','Salários e INSS','Gestão de pessoal simples e dentro da lei.',['Processamento salarial','Recibos de vencimento','Contribuições ao INSS','Contratos e admissões','Mapas e declarações']],
+ 'Empresas':['🏢','Constituição de empresas','Do primeiro passo ao arranque do negócio.',['Escolha do tipo de sociedade','Registo e licenciamento','Obtenção do NUIT','Abertura de conta','Organização inicial das contas']],
+ 'Consultoria':['📈','Consultoria financeira','Decisões baseadas em números.',['Orçamentos e previsões','Fluxo de caixa','Análise de custos e margens','Planos de crescimento','Análise de investimentos']],
+ 'Auditoria':['🔍','Auditoria e revisão','Confiança nas suas contas.',['Revisão de contas','Correção de erros','Preparação para inspeções','Controlo interno','Relatórios de recomendações']]
+};
+const st=$('#stabs');
+function showS(k){
+ $$('#stabs button').forEach(b=>b.classList.toggle('on',b.textContent===k));
+ const[e,t,d,l]=SV[k];
+ $('#sdetail').innerHTML=`<span class="e" style="font-size:2.4rem">${e}</span><h2>${t}</h2><p class="mute">${d}</p><ul style="list-style:none;margin:16px 0">${l.map(i=>`<li style="padding:6px 0;color:var(--mute)"><span style="color:var(--brand2);font-weight:700">✓</span> ${i}</li>`).join('')}</ul><a class="btn" href="#contacto">Pedir orçamento</a>`;
+}
+Object.keys(SV).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>showS(k);st.appendChild(b)});
+showS('Contabilidade');
+
+// Ferramentas
+const f=n=>new Intl.NumberFormat('pt-MZ',{style:'currency',currency:'MZN'}).format(isFinite(n)?n:0);
+let mode='sem';
+function iva(){const v=+$('#val').value||0,r=(+$('#rate').value||0)/100,b=mode==='sem'?v:v/(1+r),i=b*r;$('#r1').textContent=f(b);$('#r2').textContent=f(i);$('#r3').textContent=f(b+i)}
+['#val','#rate'].forEach(s=>$(s).oninput=iva);
+$$('#ivaMode button').forEach(b=>b.onclick=()=>{$$('#ivaMode button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;iva()});
+function mar(){const c=+$('#cost').value||0,m=Math.min(+$('#mg').value||0,99)/100,r=(+$('#mrate').value||0)/100,p=c/(1-m);$('#m1').textContent=f(p);$('#m2').textContent=f(p-c);$('#m3').textContent=f(p*(1+r))}
+['#cost','#mg','#mrate'].forEach(s=>$(s).oninput=mar);
+iva();mar();
+$$('#ttabs button').forEach(b=>b.onclick=()=>{$$('#ttabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#t-iva').style.display=b.dataset.t==='iva'?'':'none';$('#t-mar').style.display=b.dataset.t==='mar'?'':'none'});
+
+// Checklist
+const CH=['Reunir faturas de compras e vendas','Registar extratos bancários','Conferir caixa e contas a receber','Preparar a declaração de IVA','Processar salários e INSS','Rever despesas e margens do mês','Arquivar documentos digitalmente'];
+const cl=$('#chk');let state=CH.map(()=>false);
+function renderC(){
+ cl.innerHTML='';CH.forEach((t,i)=>{const li=document.createElement('li');li.className=state[i]?'done':'';li.innerHTML=`<input type="checkbox" ${state[i]?'checked':''}><span>${t}</span>`;li.onclick=e=>{state[i]=!state[i];renderC()};cl.appendChild(li)});
+ const n=state.filter(Boolean).length;$('#pbar').style.width=(n/CH.length*100)+'%';$('#ptxt').textContent=n+' de '+CH.length+' concluídas'+(n===CH.length?' 🎉':'');
+}
+renderC();
+
+// Artigos
+const PO=[
+['Fiscal','Como organizar os documentos para o IVA','Separe faturas de compras e de vendas por mês, confirme que têm NUIT e dados corretos e arquive digitalmente. Isto evita erros e acelera a declaração.'],
+['Gestão','Fluxo de caixa: o hábito que salva negócios','Registe todas as entradas e saídas semanalmente e projete as próximas semanas. Assim antecipa períodos difíceis antes que se tornem problemas.'],
+['Empresa','Que tipo de empresa abrir?','A escolha entre empresário em nome individual e sociedade depende de risco, número de sócios e crescimento. Um contabilista ajuda a decidir com base no seu caso.'],
+['Gestão','Preço vs. margem: não confunda','Margem é o lucro como percentagem do preço de venda; markup é sobre o custo. Use a nossa calculadora para ver a diferença.'],
+['Fiscal','Prepare-se para uma inspeção','Mantenha contabilidade atualizada, documentos arquivados e declarações em dia. A preparação prévia reduz o stress e o risco de coimas.'],
+['Empresa','Contratar o primeiro funcionário','Contrato escrito, inscrição na Segurança Social e processamento correto de salários são o essencial para começar bem.']
+];
+function renderP(c){
+ const box=$('#posts');box.innerHTML='';
+ PO.filter(p=>c==='all'||p[0]===c).forEach(p=>{const d=document.createElement('div');d.className='card post';d.innerHTML=`<div class="meta">${p[0]}</div><h3>${p[1]}</h3><div class="body">${p[2]}</div>`;d.onclick=()=>d.classList.toggle('open');box.appendChild(d)});
+}
+renderP('all');
+$$('#ptabs button').forEach(b=>b.onclick=()=>{$$('#ptabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderP(b.dataset.c)});
+
+// FAQ
+const FQ=[
+['Atendem pequenos negócios e empreendedores individuais?','Sim. Temos soluções desde empresas em nome individual até sociedades de maior dimensão.'],
+['Posso mudar de contabilista a meio do ano?','Pode. Tratamos da transição e da recolha de documentos para garantir continuidade.'],
+['Como envio os meus documentos?','Por WhatsApp, e-mail ou entrega presencial. Mantemos tudo organizado digitalmente.'],
+['Ajudam com inspeções da AT?','Sim, preparamos a documentação e acompanhamos o processo do início ao fim.'],
+['Como é definido o preço?','Depende do volume de movimentos e dos serviços. Fazemos um orçamento gratuito e fixo.'],
+['Em quanto tempo começam a trabalhar?','Após aceitar a proposta e receber a documentação, iniciamos rapidamente.']
+];
+function renderF(q=''){
+ $('#faqs').innerHTML=FQ.filter(x=>(x[0]+x[1]).toLowerCase().includes(q.toLowerCase())).map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')||'<p class="mute">Sem resultados. <a href="#contacto" style="color:var(--brand2)">Fale connosco</a>.</p>';
+}
+renderF();$('#fq').oninput=e=>renderF(e.target.value);
+
+// Formulário
+$('#form').onsubmit=e=>{
+ e.preventDefault();const ok=$('#ok');ok.style.display='block';
+ if(!$('#n').value.trim()||!$('#c').value.trim()){ok.style.background='rgba(220,60,60,.15)';ok.style.color='#d33';ok.textContent='Preencha o nome e um contacto.';return}
+ ok.style.background='';ok.style.color='';
+ const nome=$('#n').value.trim(),ct=$('#c').value.trim(),sv=$('#s').value,ms=$('#m').value.trim();
+ const txt='Olá, sou '+nome+'.\nServiço: '+sv+'\nContacto: '+ct+(ms?'\nMensagem: '+ms:'');
+ const wa='https://wa.me/258875220539?text='+encodeURIComponent(txt);
+ const em='mailto:nilsonadamo7@gmail.com?subject='+encodeURIComponent('Pedido: '+sv)+'&body='+encodeURIComponent(txt);
+ ok.innerHTML='Obrigado, '+nome.split(' ')[0].replace(/</g,'')+'! Abrimos o WhatsApp com o seu pedido. Se não abriu, <a href="'+wa+'" target="_blank" rel="noopener" style="text-decoration:underline">toque aqui</a> ou <a href="'+em+'" style="text-decoration:underline">envie por e-mail</a>.';
+ window.open(wa,'_blank');
+ e.target.reset();
+};
+
+// Login
+const ACCESS_KEYS=['712fc995875b40462e06d5d236eac2c08c56254f08d3da4f44a68c10c92b41ac'];
+async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function setNav(){const a=$('#navLogin');a.textContent=user?'Minha área':'Entrar';a.setAttribute('href',user?'#cliente':'#entrar')}
+function login(u){user=u;try{sessionStorage.setItem('mzu',JSON.stringify(u))}catch(e){}$('#cname').textContent=u.name;$('#cvia').textContent=u.via;setNav();if(location.hash==='#cliente')route();else location.hash='#cliente'}
+function lmsg(t,err){const m=$('#lmsg');m.style.display='block';m.textContent=t;m.style.background=err?'rgba(220,60,60,.15)':'';m.style.color=err?'#d33':''}
+$('#lform').onsubmit=async e=>{e.preventDefault();const k=$('#lkey').value.trim();let h='';try{h=await sha(k)}catch(x){}if(ACCESS_KEYS.includes(h)){login({name:'cliente',via:'chave de acesso'});$('#lkey').value=''}else lmsg('Chave de acesso inválida.',true)};
+$('#lout').onclick=()=>{user=null;try{sessionStorage.removeItem('mzu')}catch(e){}setNav();if(location.hash==='#inicio')route();else location.hash='#inicio'};
+if(user){$('#cname').textContent=user.name;$('#cvia').textContent=user.via}
+setNav();
+route();
+</script>
+<elevenlabs-convai agent-id="agent_1701m86jvpvjfc1985s3b03hyd9w"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+</html>
